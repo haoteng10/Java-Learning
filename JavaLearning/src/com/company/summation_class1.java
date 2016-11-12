@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.util.Scanner;
+
 public class summation_class1 {
 
     //Public static returnType(Parameter) {argument list}
@@ -28,6 +30,14 @@ public class summation_class1 {
 
 
     public static void main(String[] args){
-        addoddnumber(50);
+        int num;
+//        Scanner a = new Scanner(System.in);
+//
+//        System.out.println("Please enter a number");
+//        num = a.nextInt();
+
+        num = UserInput.getInt();
+
+        addoddnumber(num);
     }
 }

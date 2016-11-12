@@ -37,6 +37,8 @@ public class homeworkPractice1 {
         }
         return  result;
     }
+    
+    // Not finish
     public static boolean yesOrNo(int input) {
 
         boolean result = false;

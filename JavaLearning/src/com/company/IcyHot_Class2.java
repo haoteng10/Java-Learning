@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 /**
  * Created by haote on 2016/11/12.
  */
@@ -12,8 +14,17 @@ public class IcyHot_Class2 {
 
 
     public  static  void main (String args[]){
-        System.out.println(icyHot(120,-1));
-        System.out.println(icyHot(-1,120));
-        System.out.println(icyHot(2,120));
+        Scanner a = new Scanner(System.in);
+
+        int temp1;
+        int temp2;
+
+        System.out.println("Please enter temperature 1");
+        temp1 = a.nextInt();
+
+        System.out.println("Please enter temperature 2");
+        temp2 = a.nextInt();
+
+        System.out.println(icyHot(temp1,temp2));
     }
 }

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 /**
  * Created by haote on 2016/11/12.
  */
@@ -10,8 +12,17 @@ public class FindAverage_Class2 {
     }
 
     public static void main(String args[]){
-        int num1 = 100;
-        int num2 = 151;
+        int num1;
+        int num2;
+
+        Scanner a = new Scanner(System.in);
+
+        System.out.println("Please enter number 1");
+        num1 = a.nextInt();
+
+        System.out.println("Please enter number 2");
+        num2 = a.nextInt();
+
 
         double result = findAverage(num1,num2);
         System.out.println("The average is " + result);

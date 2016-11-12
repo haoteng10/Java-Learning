@@ -6,19 +6,7 @@ package com.company;
 public class IcyHot_Class2 {
 
     public static boolean icyHot(int left, int right){
-        boolean result = false;
-
-        if (left < 0) {
-            if (right > 100){
-                result = true;
-            }
-        } else if (right < 0)
-        {
-            if (left > 100){
-                result = true;
-            }
-        }
-        return  result;
+        return  ((left < 0 && right > 100) ||  (right < 0 && left > 100));
     }
 
 

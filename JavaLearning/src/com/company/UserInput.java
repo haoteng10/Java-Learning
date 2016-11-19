@@ -50,6 +50,17 @@ public class UserInput {
         return input;
     }
 
+    public static String getName(){
+        Scanner a = new Scanner(System.in);
+
+        String input;
+
+        System.out.println("Please enter your name:");
+        input = a.next();
+
+        return input;
+    }
+
 //    public static void main(String args[]){
 //        Scanner userReader = new Scanner(System.in);
 //

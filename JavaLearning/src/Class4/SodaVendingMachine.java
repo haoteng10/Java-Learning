@@ -13,8 +13,7 @@ public class SodaVendingMachine {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please insert money:");
         double money = scanner.nextDouble();
-        while (money > 10){
-            money = -1;
+        while (money > 10 && money < 0){
             Common.println("Sorry, we do not accept more than $10, here is your money back, please try again:");
             money = scanner.nextDouble();
         }
@@ -22,8 +21,8 @@ public class SodaVendingMachine {
     }
 
     public static void welcomeMessage(){
-        System.out.println("Welcome to vending machine:");
-        System.out.println("It's a hot day!");
+        Common.println("Welcome to vending machine:");
+        Common.println("It's a hot day!");
     }
 
     public static void displayProduct(String[] name, double[] price){

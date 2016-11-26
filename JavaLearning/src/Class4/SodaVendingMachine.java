@@ -12,7 +12,13 @@ public class SodaVendingMachine {
     public static double getMoneyFromCustomer(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please insert money:");
-        return scanner.nextDouble();
+        double money = scanner.nextDouble();
+        while (money > 10){
+            money = -1;
+            Common.println("Sorry, we do not accept more than $10, here is your money back, please try again:");
+            money = scanner.nextDouble();
+        }
+        return money;
     }
 
     public static void welcomeMessage(){
@@ -26,21 +32,34 @@ public class SodaVendingMachine {
         }
     }
 
-    public static int customerSelection(String[] name, double[] price){
+    public static int customerSelection(int[] quantity,String[] name, double[] price){
         Scanner scanner = new Scanner(System.in);
         int result = -1;
-
         while (result < 1 || result > 2){
             displayProduct(name,price);
             System.out.println("Please make your selection:");
             result = scanner.nextInt();
         }
-        return result-1;
+
+        while (isEnoughQuantity(quantity,name,result) == false){
+            System.out.println("Sorry, the item you choose is off sale, please enter again:");
+            result = -1;
+            while (result < 1 || result >= quantity.length){
+                displayProduct(name,price);
+                System.out.println("Please make your selection:");
+                result = scanner.nextInt();
+            }
+        }
+        return result;
     }
 
 
     public static boolean isEnoughMoney(double balance,int selection, double[] productPrice){
         return balance >= productPrice[selection];
+    }
+
+    public static boolean isEnoughQuantity(int[] Quantity, String[] productName, int selection){
+        return (Quantity[selection] > 0);
     }
 
     public static void main(String args[]){
@@ -49,13 +68,16 @@ public class SodaVendingMachine {
 
         String[] productName = {"Coke","Orange Juice","Sprite"};
         double[] productPrice = {1.50,2,1.50};
+        int[] productQuantity = {2,2,3};
 
         while (true){
             welcomeMessage();
             displayProduct(productName,productPrice);
             balance = getMoneyFromCustomer();
 
-            int selection = customerSelection(productName,productPrice);
+            int selection = customerSelection(productQuantity,productName,productPrice);
+
+
 
             //If there is enough money, give customer the product, and give money
             if (isEnoughMoney(balance,selection,productPrice)){

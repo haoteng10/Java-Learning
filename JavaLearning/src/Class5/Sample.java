@@ -23,9 +23,11 @@ public class Sample {
         if (a.equalsIgnoreCase("loser")){
             System.out.println("You are not welcome.");
         }else{
-            System.out.println("Hello, " + a);
-            System.out.print("The current time is: " );
-            System.out.print(dataFormat.format(date));
+            for (int i = 0; i < a.length(); i++){
+                System.out.println("Hello, " + a);
+                System.out.print("The current time is: " );
+                System.out.print(dataFormat.format(date) + "\r\n");
+            }
         }
 
 
